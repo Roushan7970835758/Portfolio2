@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "init": "^0.1.2",
+    "nodemailer": "^6.9.16",
+    "nodemailer-mailjet-transport": "^1.0.4",
+    "react-reveal": "^1.2.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "this is outer package.json",
+  "main": "Server.js",
+  "devDependencies": {},
+  "author": "Roushan",
+  "license": "MIT"
+}
