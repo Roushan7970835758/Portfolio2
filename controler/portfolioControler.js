@@ -1,9 +1,14 @@
 const nodemailer = require("nodemailer");
 const mailJetTransport = require("nodemailer-mailjet-transport");
 
+
+require('dotenv').config();
+const mailjet = require('node-mailjet').connect(
+  process.env.API_MAILJET
+);
 //transport
 const transporter = nodemailer.createTransport(
-  sendGridTransport({
+  mailJetTransport({
     auth: {
       api_key: process.env.API_MAILJET,
     },
@@ -21,6 +26,20 @@ const sendEmailControler = (req, res) => {
         message: "please Provide All Fields",
       });
     }
+    //email matter
+    transporter.sendMail({
+      to:"rroushan40@gmail.com",
+      from:"roushankumar22145@gmail.com",
+      Subject:'Regarding Mern Portfolio',
+      html:`
+      <h5>Detail Information</h5>
+      <ul>
+        <li><p>Name:${name}</p></li>
+        <li><p>Email:${email}</p></li>
+        <li><p>Message:${msg}</p></li>
+      </ul>
+      `
+    })
 
     return res.status(200).send({
       success: true,

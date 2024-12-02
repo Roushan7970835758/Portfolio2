@@ -3,7 +3,10 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
 
-
+require('dotenv').config();
+const mailjet = require('node-mailjet').connect(
+  process.env.API_MAILJET
+);
 //dotevn configrueation
 dotenv.config();
 
